@@ -10,9 +10,15 @@ const app =  Vue.createApp({
         confirmName:null,
       }
     },
+    watch:{
+        name(newValue, oldValue){
+            console.log(newValue);
+            console.log(oldValue);
+        }
+    },
     computed:{
         fullName(){
-            console.log('fullName');
+            console.log('fullName computed');
             return this.name + " "+' Himel';
         },  
     },
