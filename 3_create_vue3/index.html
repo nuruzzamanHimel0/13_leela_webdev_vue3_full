@@ -28,10 +28,14 @@
                     tut-7 
                     <div class="form-group">
                         <label for="exampleInputEmail1"> Enter Text</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" @input="setName($event,'set input name')" >
+                        <input type="text" class="form-control" id="exampleInputEmail1"
+                         @input="setName($event,'Inital name')"
+                         @keyup.enter="enterCnfirmName()"
+                         >
                         
                     </div>
-                    <p><b>Name:</b> {{ name != null ? name : '' }}   </p>
+                    <p v-once ><b>Inital Name:</b> {{ name != null ? name : '' }}   </p>
+                    <p><b>Confirm Name:</b> {{ this.confirmName }}   </p>
                 </div>
             </div>
         </div>
