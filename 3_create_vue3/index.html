@@ -22,6 +22,16 @@
                     {{ title }}
                     <br>
                     <a :href="link" class="btn btn-primary">visite</a>
+                    <br>
+                 
+                    <div  v-html="getHtml()" ></div>
+                    tut-7 
+                    <div class="form-group">
+                        <label for="exampleInputEmail1"> Enter Text</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" @input="setName($event,'set input name')" >
+                        
+                    </div>
+                    <p><b>Name:</b> {{ name != null ? name : '' }}   </p>
                 </div>
             </div>
         </div>
