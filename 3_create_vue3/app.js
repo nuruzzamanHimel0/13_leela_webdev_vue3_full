@@ -1,6 +1,7 @@
 const app =  Vue.createApp({
     data() {
       return {
+          count:0,
         message: 'Hello Vue!',
         title: 'this is a title',
         link:'https://vuejs.org/guide/quick-start.html',
@@ -9,7 +10,14 @@ const app =  Vue.createApp({
         confirmName:null,
       }
     },
+    computed:{
+        fullName(){
+            console.log('fullName');
+            return this.name + " "+' Himel';
+        },  
+    },
     methods: {
+        
         getHtml(){
             return this.html;
         },

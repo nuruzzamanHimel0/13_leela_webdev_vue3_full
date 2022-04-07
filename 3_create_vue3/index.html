@@ -16,12 +16,13 @@
                 <h2>Post Data</h2>
                 <hr>
                 <div id="app">
-                    <p>Create A post</p>
-                    {{ message }}
-                    <br>
-                    {{ title }}
-                    <br>
-                    <a :href="link" class="btn btn-primary">visite</a>
+                    <button class="btn btn-primary"  
+                    @click.left="count++"
+                    >Increment</button>
+                    <button class="btn btn-primary"
+                    @click.right="count--"
+                    >Decrement</button>
+                    <h3>{{ count }}</h3>
                     <br>
                  
                     <div  v-html="getHtml()" ></div>
@@ -29,13 +30,12 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1"> Enter Text</label>
                         <input type="text" class="form-control" id="exampleInputEmail1"
-                         @input="setName($event,'Inital name')"
-                         @keyup.enter="enterCnfirmName()"
+                        v-model = 'name'
                          >
                         
                     </div>
                     <p v-once ><b>Inital Name:</b> {{ name != null ? name : '' }}   </p>
-                    <p><b>Confirm Name:</b> {{ this.confirmName }}   </p>
+                    <p><b>Confirm Name:</b> {{ fullName }}   </p>
                 </div>
             </div>
         </div>
