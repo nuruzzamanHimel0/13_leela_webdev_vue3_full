@@ -1,0 +1,5 @@
+
+tut-13: dynamic style bind
+tut-14: dynamic class bind
+tut-15: dynamic css usering computed proertyr and array syntex
+tut-16- if directive

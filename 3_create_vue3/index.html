@@ -10,23 +10,32 @@
 </head>
 <body>
     
-    <div class="container">
+    <div class="container" id="app">
         <div class="row">
             <div class="col-md-12">
-                <h2>Post Data</h2>
+                <h2>v-if directve</h2>
                 <hr>
-                <div id="app">
-                   <div class="d-flex flex-column">
-                        <div class="box" @click="boxColorChange(1)"
-                        v-bind:class="[boxNumberOne == 1 ? 'active' : '' ]"
-                        ></div>
-                        <div class="box" @click="boxColorChange(2)" 
-                        v-bind:class="[boxNumberTwo == 2 ? 'active' : '' ]"
-                        ></div>
-                        <div class="box" @click="boxColorChange(3)"
-                        v-bind:class="[boxNumberThree == 3?  'active' :'' ]"
-                        ></div>
-                   </div>
+                <form @submit.prevent="submitHobbies()" >
+                    <div class="form-group">
+                      <label for="hobiesId">Hobies</label>
+                      <input type="text" class="form-control" id="hobiesId" v-model="hobbiesInput" >
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                <hr>
+                <div class="card">
+                    <div class="card-title">
+                        <h3>Hobies list</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="alert alert-warning" v-if="hobbies.length == 0 ">No Hobies is available</p>
+                        <ul class="list-group" v-if="hobbies.length > 0">
+                            <li class="list-group-item"  v-for="(value, key) in hobbies" ::key="key" >
+                                {{ value }}
+                            </li>
+                        
+                          </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -36,15 +45,7 @@
     <script src="app.js" ></script>
 
     <style>
-        .box{
-            width: 100%;
-            height: 200px;
-            border: 1px solid #000;
-            margin-top: 10px;
-        }
-        .active{
-            background-color: red;
-        }
+       
     </style>
 </body>
 </html>
