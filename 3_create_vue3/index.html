@@ -29,9 +29,10 @@
                     </div>
                     <div class="card-body">
                         <p class="alert alert-warning" v-if="hobbies.length == 0 ">No Hobies is available</p>
-                        <ul class="list-group" v-if="hobbies.length > 0">
+                        <ul class="list-group" v-else-if="hobbies.length > 0">
                             <li class="list-group-item"  v-for="(value, key) in hobbies" ::key="key" >
                                 {{ value }}
+                                <button class="btn btn-danger float-right" @click.prevent="removeBtn(key)" >Remove</button>
                             </li>
                         
                           </ul>
