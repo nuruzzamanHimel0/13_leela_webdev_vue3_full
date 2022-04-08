@@ -7,8 +7,8 @@
         
           <div v-for="(value, key) in posts" :key="key">
               <a href="" @click.prevent="changeFirstTitle(key)" >Change First Title here</a>
-            <!-- <compSInglePost v-bind:data="value" :isActive="1" ></compSInglePost> -->
-            <compSInglePost  :isActive="1" ></compSInglePost>
+            <compSInglePost v-bind:postdata="value" :isActive="1" ></compSInglePost>
+           
             <br>
           </div>
          

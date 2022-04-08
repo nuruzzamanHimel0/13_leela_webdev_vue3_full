@@ -15,12 +15,12 @@
 export default {
     data(){
         return {
-           post: this.data
+           post: this.postdata
         }
     },
     // props:['data','isActive'],
     props:{
-        data:{
+        postdata:{
             type: Object,
             required: false,
             default:function(){
@@ -33,7 +33,10 @@ export default {
         isActive:{
             type: Number,
             required:true,
-            default:1
+            default:1,
+            validator: function(value){
+                return [0,1].includes(value);
+            }
         }
     },
     methods:{
