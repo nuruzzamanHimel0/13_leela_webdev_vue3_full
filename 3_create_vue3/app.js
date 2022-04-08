@@ -1,39 +1,42 @@
 const app =  Vue.createApp({
     data() {
       return {
-          count:0,
-        message: 'Hello Vue!',
-        title: 'this is a title',
-        link:'https://vuejs.org/guide/quick-start.html',
-        html: '<h2> This is HTML  </h2>',
-        name:"That is initail name",
-        confirmName:null,
+        boxNumberOne:null,
+        boxNumberTwo:null,
+        boxNumberThree:null,
       }
     },
     watch:{
-        name(newValue, oldValue){
-            console.log(newValue);
-            console.log(oldValue);
-        }
+      
     },
     computed:{
-        fullName(){
-            console.log('fullName computed');
-            return this.name + " "+' Himel';
-        },  
+      
     },
     methods: {
-        
-        getHtml(){
-            return this.html;
-        },
-        setName(event,arg){
-            this.name = event.target.value +" "+ arg;
-            console.log(this.name);
-        },
-        enterCnfirmName(){
-            console.log('hi');
-            return this.confirmName = this.name;
+        boxColorChange(arg){
+            if(arg == 1){
+                if(this.boxNumberOne != null){
+                    this.boxNumberOne = null;
+                }else{
+                    this.boxNumberOne = 1;
+                }
+               
+            }else if(arg == 2){
+                if(this.boxNumberTwo != null){
+                    this.boxNumberTwo = null;
+                }else{
+                    this.boxNumberTwo = 2;
+                }
+          
+            }
+            else if(arg == 3){
+                if(this.boxNumberThree != null){
+                    this.boxNumberThree = null;
+                }else{
+                    this.boxNumberThree = 3;
+                }
+               
+            }
         }
     },
   });

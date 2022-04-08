@@ -16,26 +16,17 @@
                 <h2>Post Data</h2>
                 <hr>
                 <div id="app">
-                    <button class="btn btn-primary"  
-                    @click.left="count++"
-                    >Increment</button>
-                    <button class="btn btn-primary"
-                    @click.right="count--"
-                    >Decrement</button>
-                    <h3>{{ count }}</h3>
-                    <br>
-                 
-                    <div  v-html="getHtml()" ></div>
-                    tut-7 
-                    <div class="form-group">
-                        <label for="exampleInputEmail1"> Enter Text</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1"
-                        v-model = 'name'
-                         >
-                        
-                    </div>
-                    <p v-once ><b>Inital Name:</b> {{ name != null ? name : '' }}   </p>
-                    <p><b>Confirm Name:</b> {{ fullName }}   </p>
+                   <div class="d-flex flex-column">
+                        <div class="box" @click="boxColorChange(1)"
+                        v-bind:class="[boxNumberOne == 1 ? 'active' : '' ]"
+                        ></div>
+                        <div class="box" @click="boxColorChange(2)" 
+                        v-bind:class="[boxNumberTwo == 2 ? 'active' : '' ]"
+                        ></div>
+                        <div class="box" @click="boxColorChange(3)"
+                        v-bind:class="[boxNumberThree == 3?  'active' :'' ]"
+                        ></div>
+                   </div>
                 </div>
             </div>
         </div>
@@ -43,5 +34,17 @@
 
     <script src="https://unpkg.com/vue@3"></script>
     <script src="app.js" ></script>
+
+    <style>
+        .box{
+            width: 100%;
+            height: 200px;
+            border: 1px solid #000;
+            margin-top: 10px;
+        }
+        .active{
+            background-color: red;
+        }
+    </style>
 </body>
 </html>
