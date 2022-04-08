@@ -15,29 +15,16 @@
             <div class="col-md-12">
                 <h2>v-if directve</h2>
                 <hr>
-                <form @submit.prevent="submitHobbies()" >
+                <form  >
                     <div class="form-group">
                       <label for="hobiesId">Hobies</label>
-                      <input type="text" class="form-control" id="hobiesId" v-model="hobbiesInput" >
+                      <input type="text" class="form-control" id="hobiesId" ref="userText" >
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" @click.prevent="submitBtn" >Submit</button>
                 </form>
                 <hr>
-                <div class="card">
-                    <div class="card-title">
-                        <h3>Hobies list</h3>
-                    </div>
-                    <div class="card-body">
-                        <p class="alert alert-warning" v-if="hobbies.length == 0 ">No Hobies is available</p>
-                        <ul class="list-group" v-else-if="hobbies.length > 0">
-                            <li class="list-group-item"  v-for="(value, key) in hobbies" ::key="key" >
-                                {{ value }}
-                                <button class="btn btn-danger float-right" @click.prevent="removeBtn(key)" >Remove</button>
-                            </li>
-                        
-                          </ul>
-                    </div>
-                </div>
+                <p>{{ hobbiesInput }}</p>
+               
             </div>
         </div>
     </div>
