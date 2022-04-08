@@ -1,4 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+// import compSInglePost from '@/components/singlePost.vue'
+
+const app = createApp(App)
+// // that is called global component
+// app.component('compSInglePost',compSInglePost);
+
+app.mount('#app')
