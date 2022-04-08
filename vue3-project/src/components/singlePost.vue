@@ -3,8 +3,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>{{ post.title }} </p>
+                    <h4>{{ post.title }} </h4>
                     <p>{{ post.description }} </p>
+                    <a href="" @click.prevent="changeTitle()" >Change Title name</a>
                 </div>
             </div>
         </div>
@@ -14,11 +15,20 @@
 export default {
     data(){
         return {
-            post:{
-                title: 'this is title one',
-                description: 'This is post title description'
-            }
+           post: this.data
+        }
+    },
+    props:['data','isActive'],
+    methods:{
+        changeTitle(){
+            this.post.title = "change post title here";
         }
     }
 }
 </script>
+
+<style scoped>
+    h4{
+        color:red;
+    }
+</style>
