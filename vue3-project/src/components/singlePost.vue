@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="container">
-            <div class="row">
+            <div class="row" :class="{ 'bg-color-gray' : isActive == 1 }" >
                 <div class="col-md-12">
                     <h4>{{ post.title }} </h4>
                     <p>{{ post.description }} </p>
@@ -18,7 +18,24 @@ export default {
            post: this.data
         }
     },
-    props:['data','isActive'],
+    // props:['data','isActive'],
+    props:{
+        data:{
+            type: Object,
+            required: false,
+            default:function(){
+                return  {
+                    title: 'This is a title one',
+                    description: 'This is a post title descirption'
+                }
+            }
+        },
+        isActive:{
+            type: Number,
+            required:true,
+            default:1
+        }
+    },
     methods:{
         changeTitle(){
             this.post.title = "change post title here";
@@ -30,5 +47,9 @@ export default {
 <style scoped>
     h4{
         color:red;
+    }
+    .bg-color-gray{
+        background: #ddd;
+    padding: 9px;
     }
 </style>

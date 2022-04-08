@@ -4,9 +4,11 @@
       <div class="row">
         <div class="col-md-12">
           <h2>POSTS</h2>
-          <a href="" @click.prevent="changeFirstTitle()" >Change First Title here</a>
+        
           <div v-for="(value, key) in posts" :key="key">
-            <compSInglePost v-bind:data="value" :isActive="1" ></compSInglePost>
+              <a href="" @click.prevent="changeFirstTitle(key)" >Change First Title here</a>
+            <!-- <compSInglePost v-bind:data="value" :isActive="1" ></compSInglePost> -->
+            <compSInglePost  :isActive="1" ></compSInglePost>
             <br>
           </div>
          
@@ -38,8 +40,8 @@ export default {
     compSInglePost
   },
   methods:{
-    changeFirstTitle(){
-      this.posts[0].title = "This is the change first post title here";
+    changeFirstTitle(key){
+      this.posts[key].title = "This is the change first post title here Number of="+key;
     }
   }
 }

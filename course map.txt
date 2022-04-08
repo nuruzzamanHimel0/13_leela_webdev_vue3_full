@@ -5,3 +5,4 @@ tut-15: dynamic css usering computed proertyr and array syntex
 tut-16- if directive
 tut-21: ref='userText'
 tut-28: local and global component regester
+tut-30: basic validation of props
