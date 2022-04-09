@@ -8,8 +8,13 @@
             <compSelectComponet
               data-status = '1'
               id="selectBox"
-              @change="selectChange"
+           
             ></compSelectComponet> 
+          </div>
+
+          <div class="my-4">
+            <p>{{user}}</p>
+            <a href="" @click.prevent="changeUserName()" >Change User aname</a>
           </div>
         
           <div v-for="(value, key) in posts" :key="key">
@@ -41,6 +46,9 @@
 
  import compSelectComponet from '@/components/selectComponent.vue'
 
+
+ import { computed } from 'vue'
+
 export default {
 
   data(){
@@ -57,19 +65,30 @@ export default {
           description: 'This is a post title descirption'
         }
       ],
+       user:'Md nuruzzaman Himel'
+     
     }
+  },
+  //provide:{ user: this.user}
+  //or
+  provide(){
+    return {
+        user: computed(() => this.user),
+    }
+    
   },
   components:{
     compSInglePost,
     compSelectComponet
   },
   methods:{
+    changeUserName(){
+      this.user = "Change User Md Nuruzzaman Himel";
+    },
     changeFirstTitle(key){
       this.posts[key].title = "This is the change first post title here Number of="+key;
     },
-    selectChange(event){
-      console.log(event.target.value);
-    },
+    
     onTitleChange(event){
       let index = this.posts.findIndex((post) => post.id == event.id);
       this.posts[index].title = event.title;

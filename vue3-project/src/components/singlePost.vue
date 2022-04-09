@@ -5,6 +5,9 @@
                 <div class="col-md-12">
                     <h4>{{ post.title }} </h4>
                     <p>{{ post.description }} </p>
+
+                    <compPostUser  ></compPostUser>
+
                     <a href="" @click.prevent="changeTitle()" >Change Title name</a>
                 </div>
             </div>
@@ -15,6 +18,8 @@
 
 import {Post} from '../services/postService'
 
+import compPostUser from './postUser.vue'
+
 export default {
       // 33. Apply Validation for the emitted custom events in Vue js Vue 3
   // emits:['titlechanged'],
@@ -23,7 +28,7 @@ export default {
     titlechanged : (post) => {
     //   if(post.id && post.title && post.description){
       if(post instanceof Post ){
-        console.log('valid');
+        // console.log('valid');
         return true;
       }
       console.log('invalide post data');
@@ -57,7 +62,8 @@ export default {
             validator: function(value){
                 return [0,1].includes(value);
             }
-        }
+        },
+       
     },
     methods:{
         changeTitle(){
@@ -68,6 +74,9 @@ export default {
 
             // this.$emit('titlechanged',this.post);
         }
+    },
+    components:{
+        compPostUser
     }
 }
 </script>
