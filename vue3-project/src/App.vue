@@ -14,7 +14,7 @@
 
           <div class="my-4">
             <p>{{user}}</p>
-            <a href="" @click.prevent="changeUserName()" >Change User aname</a>
+            <a href="" @click.prevent="changeUserName()" >Change User name</a>
           </div>
         
           <div v-for="(value, key) in posts" :key="key">
@@ -74,6 +74,7 @@ export default {
   provide(){
     return {
         user: computed(() => this.user),
+        changeUserChild: this.changeUserName
     }
     
   },
@@ -82,8 +83,12 @@ export default {
     compSelectComponet
   },
   methods:{
-    changeUserName(){
-      this.user = "Change User Md Nuruzzaman Himel";
+    changeUserName(user){
+      if(user){
+        this.user = user;
+      }else{
+      this.user = "Change PARENT COMPONET User Md Nuruzzaman Himel";
+      }
     },
     changeFirstTitle(key){
       this.posts[key].title = "This is the change first post title here Number of="+key;

@@ -11,5 +11,7 @@ tut-31: non props attributes and  attribute inheritance (  new concept )
 tut-32: chaild to parent communication data pass
 tut-33: 33. Apply Validation for the emitted custom events in Vue js Vue 3 (ggogl search: validator emit events vuejs)
 url: https://vuejs.org/guide/components/events.html
+
 tut-34:34. Provide Inject for parent-child communication. Apply reactivity for provide values - Vue 3 (VVVI)
 url: https://vuejs.org/guide/components/provide-inject.html
+tut-35) (child to parent communicaiton in provide / inject) 35. Apply Provide - Inject for the Custom Event Methods. Props Vs Provide in Vue js Vue 3
