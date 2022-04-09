@@ -8,15 +8,34 @@
                 class="btn btn-primary"
                 @click.prevent="childTOParEmit()"
             >(FROM child comp)Custom event emit chile to parent comp title udt</a>
+            <br>
+             <compSinglePost> </compSinglePost>
         </div>
+        <hr>
+       
     </div>
 </template>
 
 <script>
+
+import compSinglePost from '@/components/singleUser.vue'
+
 export default {
+    //custome event emit valiaiton
     emits:{
-      
-    },
+    titlechanged : (post) => {
+        if(post.id && post.title && post.description){
+            console.log('valide custome event');
+            return true;
+        }
+        console.log('invalide custome event');
+        return false;
+     
+    }
+  },
+  components:{
+      compSinglePost
+  },
     data(){
         return {
             post: {...this.data},

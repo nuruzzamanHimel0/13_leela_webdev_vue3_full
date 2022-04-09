@@ -5,7 +5,13 @@
         <div class="col-md-8">
           <h2>POSTS</h2>
 
-         
+             <hr>
+            <h1>Provider /Inject</h1> <br>
+            <p>App  User: {{user}}</p>
+            <a href="" class="btn btn-light"
+              @click.prevent="changeUserName('Update User MD Nuruzzaman')"
+            >Change user name</a>
+            <hr>
       
           <div v-for="(value, key) in posts" :key="key" >
              <a href="" class="btn btn-danger"
@@ -17,9 +23,11 @@
               :isActive="isActive"
 
               @titlechanged ="childToParTitleChng($event)"
+
             ></compSinglePost>
+
           </div>
-         
+
          
         </div>
         <div class="col-md-4">
@@ -37,6 +45,8 @@
 <script>
 
 import compSinglePost from '@/components/singlePost.vue'
+
+import { computed } from 'vue'
 
 export default {
 
@@ -59,11 +69,25 @@ export default {
      
     }
   },
+  provide(){
+    return {
+      user: computed(()=>this.user) ,
+      updateParentUsr: this.changeUserName
+    }
+  },
   
   components:{
     compSinglePost
   },
   methods:{
+    changeUserName(value){
+      if(value.name){
+        this.user = value.name;
+      }else{
+
+        this.user = value;
+      }
+    },
     changeParentComFirstTitle(key){
       this.posts[key].title = "App Componet Post Title Change ="+key;
     },
