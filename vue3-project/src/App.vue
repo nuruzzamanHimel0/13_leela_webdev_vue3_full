@@ -4,34 +4,26 @@
       <div class="row">
         <div class="col-md-8">
           <h2>POSTS</h2>
-          <div class="my-4">
-            <compSelectComponet
-              data-status = '1'
-              id="selectBox"
-           
-            ></compSelectComponet> 
-          </div>
 
-          <div class="my-4">
-            <p>{{user}}</p>
-            <a href="" @click.prevent="changeUserName()" >Change User name</a>
+         
+      
+          <div v-for="(value, key) in posts" :key="key" >
+             <a href="" class="btn btn-danger"
+            @click.prevent="changeParentComFirstTitle(key)"
+            >Change APP Parent Post Fist TItle</a>
+
+            <compSinglePost
+              :data="value"
+              :isActive="isActive"
+            ></compSinglePost>
           </div>
-        
-          <div v-for="(value, key) in posts" :key="key">
-              <a href="" @click.prevent="changeFirstTitle(key)" >Change First Title here</a>
-              
-            <compSInglePost v-bind:postdata="value" :isActive="1"
-              v-on:titlechanged="onTitleChange($event)"
-             ></compSInglePost>
-           
-            <br>
-          </div>
+         
          
         </div>
         <div class="col-md-4">
           <h2>Latest Post:</h2>
-          <ul class="list-group mt-5">
-            <li class="list-group-item" v-for="(value,key) in posts" :key="key" >
+          <ul class="mt-2 list-group">
+            <li class="list-group-item" v-for="(value, key) in posts" :key="key" >
               {{ value.title }}
             </li>
           </ul>
@@ -42,12 +34,7 @@
 </template>
 <script>
 
- import compSInglePost from '@/components/singlePost.vue'
-
- import compSelectComponet from '@/components/selectComponent.vue'
-
-
- import { computed } from 'vue'
+import compSinglePost from '@/components/singlePost.vue'
 
 export default {
 
@@ -65,38 +52,18 @@ export default {
           description: 'This is a post title descirption'
         }
       ],
-       user:'Md nuruzzaman Himel'
+       user:'Md nuruzzaman Himel',
+       isActive : 1
      
     }
   },
-  //provide:{ user: this.user}
-  //or
-  provide(){
-    return {
-        user: computed(() => this.user),
-        changeUserChild: this.changeUserName
-    }
-    
-  },
+  
   components:{
-    compSInglePost,
-    compSelectComponet
+    compSinglePost
   },
   methods:{
-    changeUserName(user){
-      if(user){
-        this.user = user;
-      }else{
-      this.user = "Change PARENT COMPONET User Md Nuruzzaman Himel";
-      }
-    },
-    changeFirstTitle(key){
-      this.posts[key].title = "This is the change first post title here Number of="+key;
-    },
-    
-    onTitleChange(event){
-      let index = this.posts.findIndex((post) => post.id == event.id);
-      this.posts[index].title = event.title;
+    changeParentComFirstTitle(key){
+      this.posts[key].title = "App Componet Post Title Change ="+key;
     }
   }
 }
