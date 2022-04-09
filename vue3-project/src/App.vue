@@ -14,8 +14,9 @@
         
           <div v-for="(value, key) in posts" :key="key">
               <a href="" @click.prevent="changeFirstTitle(key)" >Change First Title here</a>
+              
             <compSInglePost v-bind:postdata="value" :isActive="1"
-              v-on:titleChanged="onTitleChange($event)"
+              v-on:titlechanged="onTitleChange($event)"
              ></compSInglePost>
            
             <br>
@@ -41,6 +42,7 @@
  import compSelectComponet from '@/components/selectComponent.vue'
 
 export default {
+
   data(){
     return {
       posts: [
@@ -71,8 +73,6 @@ export default {
     onTitleChange(event){
       let index = this.posts.findIndex((post) => post.id == event.id);
       this.posts[index].title = event.title;
-      // console.log(event.id);
-      // console.log(index);
     }
   }
 }

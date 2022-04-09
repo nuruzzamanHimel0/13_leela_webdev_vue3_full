@@ -12,7 +12,24 @@
     </div>
 </template>
 <script>
+
+import {Post} from '../services/postService'
+
 export default {
+      // 33. Apply Validation for the emitted custom events in Vue js Vue 3
+  // emits:['titlechanged'],
+  // or
+  emits:{
+    titlechanged : (post) => {
+    //   if(post.id && post.title && post.description){
+      if(post instanceof Post ){
+        console.log('valid');
+        return true;
+      }
+      console.log('invalide post data');
+      return false;
+    }
+  },
     data(){
         return {
         //    post: this.postdata
@@ -21,6 +38,7 @@ export default {
         }
     },
     // props:['data','isActive'],
+    //or
     props:{
         postdata:{
             type: Object,
@@ -44,7 +62,11 @@ export default {
     methods:{
         changeTitle(){
             this.post.title = "change post title here";
-            this.$emit('titleChanged',this.post);
+
+            const postData = new Post(this.post.id, this.post.title, this.post.description);
+            this.$emit('titlechanged',postData);
+
+            // this.$emit('titlechanged',this.post);
         }
     }
 }
