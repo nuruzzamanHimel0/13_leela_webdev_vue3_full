@@ -6,3 +6,5 @@ tut-16- if directive
 tut-21: ref='userText'
 tut-28: local and global component regester
 tut-30: basic validation of props
+tut-30: props
+tut-31: non props attributes and  attribute inheritance (  new concept )
