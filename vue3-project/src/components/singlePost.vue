@@ -50,7 +50,7 @@ export default {
         childTOParEmit(){
             this.post.title = "Custom event emit chile to parent comp Update Title="+this.post.id;
 
-            this.$emit('childTOParPstTitleChange',this.post);
+            this.$emit('titlechanged',this.post);
         }
     },
 }

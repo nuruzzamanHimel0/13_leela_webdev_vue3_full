@@ -16,7 +16,7 @@
               :data="value"
               :isActive="isActive"
 
-              @childTOParPstTitleChange ="childToParTitleChng($event)"
+              @titlechanged ="childToParTitleChng($event)"
             ></compSinglePost>
           </div>
          
