@@ -8,3 +8,4 @@ tut-28: local and global component regester
 tut-30: basic validation of props
 tut-30: props
 tut-31: non props attributes and  attribute inheritance (  new concept )
+tut-32: chaild to parent communication data pass

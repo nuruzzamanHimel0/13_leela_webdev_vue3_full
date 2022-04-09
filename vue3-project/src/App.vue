@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8">
           <h2>POSTS</h2>
           <div class="my-4">
             <compSelectComponet
@@ -14,11 +14,21 @@
         
           <div v-for="(value, key) in posts" :key="key">
               <a href="" @click.prevent="changeFirstTitle(key)" >Change First Title here</a>
-            <compSInglePost v-bind:postdata="value" :isActive="1" ></compSInglePost>
+            <compSInglePost v-bind:postdata="value" :isActive="1"
+              v-on:titleChanged="onTitleChange($event)"
+             ></compSInglePost>
            
             <br>
           </div>
          
+        </div>
+        <div class="col-md-4">
+          <h2>Latest Post:</h2>
+          <ul class="list-group mt-5">
+            <li class="list-group-item" v-for="(value,key) in posts" :key="key" >
+              {{ value.title }}
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -35,10 +45,12 @@ export default {
     return {
       posts: [
         {
+          id: 1,
           title: 'This is a title one',
           description: 'This is a post title descirption'
         },
         {
+          id: 2,
           title: 'This is a title TWO',
           description: 'This is a post title descirption'
         }
@@ -55,6 +67,12 @@ export default {
     },
     selectChange(event){
       console.log(event.target.value);
+    },
+    onTitleChange(event){
+      let index = this.posts.findIndex((post) => post.id == event.id);
+      this.posts[index].title = event.title;
+      // console.log(event.id);
+      // console.log(index);
     }
   }
 }

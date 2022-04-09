@@ -15,7 +15,9 @@
 export default {
     data(){
         return {
-           post: this.postdata
+        //    post: this.postdata
+        // memory te onno jaygay data store kore
+           post: {...this.postdata}
         }
     },
     // props:['data','isActive'],
@@ -42,6 +44,7 @@ export default {
     methods:{
         changeTitle(){
             this.post.title = "change post title here";
+            this.$emit('titleChanged',this.post);
         }
     }
 }
