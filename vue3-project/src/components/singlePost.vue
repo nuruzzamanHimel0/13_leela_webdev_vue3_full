@@ -4,12 +4,19 @@
             <h4>{{post.title}}</h4>
             <p>{{post.description}}</p>
             <a href="" class="btn btn-success" @click.prevent="changeChildCompTitle()">Change Child Comp Title</a>
+            <a href=""
+                class="btn btn-primary"
+                @click.prevent="childTOParEmit()"
+            >(FROM child comp)Custom event emit chile to parent comp title udt</a>
         </div>
     </div>
 </template>
 
 <script>
 export default {
+    emits:{
+      
+    },
     data(){
         return {
             post: {...this.data},
@@ -39,6 +46,11 @@ export default {
     methods: {
         changeChildCompTitle(){
             this.post.title = "Change Child Componet Title ="+this.post.id;
+        },
+        childTOParEmit(){
+            this.post.title = "Custom event emit chile to parent comp Update Title="+this.post.id;
+
+            this.$emit('childTOParPstTitleChange',this.post);
         }
     },
 }

@@ -15,6 +15,8 @@
             <compSinglePost
               :data="value"
               :isActive="isActive"
+
+              @childTOParPstTitleChange ="childToParTitleChng($event)"
             ></compSinglePost>
           </div>
          
@@ -64,6 +66,11 @@ export default {
   methods:{
     changeParentComFirstTitle(key){
       this.posts[key].title = "App Componet Post Title Change ="+key;
+    },
+    childToParTitleChng(event){
+      const index = this.posts.findIndex((post) => post.id == event.id );
+      this.posts[index].title = event.title;
+      // console.log(index);
     }
   }
 }
