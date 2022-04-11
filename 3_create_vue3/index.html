@@ -10,20 +10,14 @@
 </head>
 <body>
     
-    <div class="container" id="app">
+    <div class="container" >
         <div class="row">
+            {{ data }}
             <div class="col-md-12">
-                <h2>v-if directve</h2>
-                <hr>
-                <form  >
-                    <div class="form-group">
-                      <label for="hobiesId">Hobies</label>
-                      <input type="text" class="form-control" id="hobiesId" ref="userText" >
-                    </div>
-                    <button type="submit" class="btn btn-primary" @click.prevent="submitBtn" >Submit</button>
-                </form>
-                <hr>
-                <p>{{ hobbiesInput }}</p>
+                <h2>create Vuejs Instance</h2>
+                <div id="app">
+                    {{ data }}
+                </div>
                
             </div>
         </div>
