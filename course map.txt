@@ -1,4 +1,9 @@
+
+######## narmal #######
 tu-3: create A simple vuejs instance
+tut-4: 4. Binding the html element attributes with v-bind Directive in Vue 3
+tut-5: 5. Implement Methods- use Data Properties inside methods- understand v-html directive in Vuejs
+
 tut-13: dynamic style bind
 tut-14: dynamic class bind
 tut-15: dynamic css usering computed proertyr and array syntex
