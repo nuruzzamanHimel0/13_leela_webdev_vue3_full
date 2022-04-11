@@ -1,0 +1,29 @@
+
+######## narmal #######
+tu-3: create A simple vuejs instance
+tut-4: 4. Binding the html element attributes with v-bind Directive in Vue 3
+tut-5: 5. Implement Methods- use Data Properties inside methods- understand v-html directive in Vuejs
+tut-7: 7. Access the Native Event Object -$event in the event handling Methods in Vue3 Vue js
+tut-8: 8. Use of Event Modifiers like mouse right-click- Prevent default - stop Propagation - Vue3 Vue js
+tut:9: 9.use of Key Event Modifiers -enter- esc- ctrl- shift keys- and v-once directive in Vue3 Vue js
+search by: v-bind events
+serch urL https://v2.vuejs.org/v2/guide/events?redirect=true
+v-bind:keyup.enter="confirm()"
+vuejs title: Event Handling
+
+tut-13: dynamic style bind
+tut-14: dynamic class bind
+tut-15: dynamic css usering computed proertyr and array syntex
+tut-16- if directive
+tut-21: ref='userText'
+tut-28: local and global component regester
+tut-30: basic validation of props
+tut-30: props
+tut-31: non props attributes and  attribute inheritance (  new concept )
+tut-32: chaild to parent communication data pass
+tut-33: 33. Apply Validation for the emitted custom events in Vue js Vue 3 (ggogl search: validator emit events vuejs)
+url: https://vuejs.org/guide/components/events.html
+######## Provide / inject consept of props ##############
+tut-34:34. Provide Inject for parent-child communication. Apply reactivity for provide values - Vue 3 (VVVI)
+url: https://vuejs.org/guide/components/provide-inject.html
+tut-35) (child to parent communicaiton in provide / inject) 35. Apply Provide - Inject for the Custom Event Methods. Props Vs Provide in Vue js Vue 3
