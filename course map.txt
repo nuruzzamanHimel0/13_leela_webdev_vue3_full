@@ -10,7 +10,10 @@ search by: v-bind events
 serch urL https://v2.vuejs.org/v2/guide/events?redirect=true
 v-bind:keyup.enter="confirm()"
 vuejs title: Event Handling
-
+tut-10:10. v-model Directiv
+tut-11: how we use computed property
+tut-12: watch property use
+################ Css / style Users ###########
 tut-13: dynamic style bind
 tut-14: dynamic class bind
 tut-15: dynamic css usering computed proertyr and array syntex
