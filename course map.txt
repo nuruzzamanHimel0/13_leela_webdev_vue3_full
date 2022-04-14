@@ -1,3 +1,7 @@
+leela web dev git:https://github.com/leelanarasimha/vue3-course
+
+FULL road mis is here google doc
+https://docs.google.com/document/d/1jljNM0V9UzVGR2ywFyWb2xX8ym3PjG-BVT40WIv-YA0/edit
 
 ######## narmal #######
 tu-3: create A simple vuejs instance
@@ -17,6 +21,7 @@ tut-12: watch property use
 tut-13: dynamic style bind
 tut-14: dynamic class bind
 tut-15: dynamic css usering computed proertyr and array syntex
+
 tut-16- if directive
 tut-21: ref='userText'
 tut-28: local and global component regester
