@@ -4,6 +4,7 @@
         <ul>
             <div class="title">{{ compost.title }} </div>
             <div >{{ compost.description }} </div>
+            <userPost  ></userPost>
             <a href="" @click.prevent="changeTitle()" > Change Title </a>
         </ul>
         <hr>
@@ -12,6 +13,8 @@
 <script>
 
 import {Post} from '../services/PostService.js'
+
+import userPost from '../components/PostUser.vue'
 
 export default {
     //emit validaiton
@@ -47,7 +50,8 @@ export default {
             validator: function(value){
                 return [1,0].includes(value)
             }
-        }
+        },
+        
     },
     data(){
         return {
@@ -64,6 +68,9 @@ export default {
             );
             this.$emit('changeTitle',postData);
         }
+    },
+    components:{
+        userPost
     }
 }
 </script>

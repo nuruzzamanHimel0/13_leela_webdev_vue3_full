@@ -8,9 +8,15 @@
       </li>
     </ul>
     <hr>
+    <h2>Tut 34: Provide/Inject:</h2>
+
+    <p>{{ user }}</p>
+    <a href="" class="btn btn-success" @click.prevent="changeUser()" >Change User Name</a>
+    <hr>
     <div v-for="(value, key) in posts" :key="key" >
       //componet
       <single-post :data="value" :isActive="1"
+       
         @changeTitle="onChangeTitle($event)"
        ></single-post>
     </div>
@@ -21,6 +27,8 @@
 <script>
 
 import SinglePost from './components/SinglePost.vue'
+//provide/inject
+import { computed } from 'vue'
 
 export default {
   data(){
@@ -36,20 +44,39 @@ export default {
           title:'secound title',
           description:'this is the secound description'
         },
-      ]
+      ],
+      user:"Nuruzzaman Himel",
+    }
+  },
+  // provide:{
+  //   user:"Nuruzzaman Himel",
+  // },
+  provide(){
+    return {
+        // user:this.user,
+        user: computed(() => this.user),
+        changeUserChild : this.changeUser
     }
   },
   methods:{
+    changeUser(valUser){
+      if(valUser){
+        this.user = valUser;
+      }else{
+        this.user = "Change User name is: Md Nuruzzaman";
+      }
+    },
     changeParentFirstTitle(){
       this.posts[0].title ="Change Parent Component Fist Title";
     },
     onChangeTitle(event){
       let index = this.posts.findIndex((post) => post.id == event.id );
-        this.posts[index].title = event.title;
-        this.posts[index].description = event.description;
+      this.posts[index].title = event.title;
+      this.posts[index].description = event.description;
         
-      console.log(index);
-    }
+      // console.log(index);
+    },
+    
   },
   components:{
     SinglePost
