@@ -10,12 +10,16 @@
     </div>
 </template>
 <script>
+
+import {Post} from '../services/PostService.js'
+
 export default {
     //emit validaiton
     // emits:['changeTitle'],
     emits:{
         changeTitle: ( value ) =>{
-            if(value.id && value.title && value.description ){
+            // if(value.id && value.title && value.description ){
+            if(value instanceof Post ){
                 console.log('valide emit');
                 return true;
             }
@@ -26,7 +30,7 @@ export default {
     // props:['data','isActive'],
     //porps validaiton ##############
     props:{
-        postData:{
+        data:{
             type:Object,
             required:false,
             default: function(){
@@ -47,13 +51,18 @@ export default {
     },
     data(){
         return {
-           compost: {...this.postData},
+           compost: {...this.data},
         }
     },
     methods:{
         changeTitle(){
             this.compost.title ="Change Post Title from child comp="+this.compost.id;
-            this.$emit('changeTitle',this.compost);
+            const postData = new Post(
+                this.compost.id,
+                this.compost.title,
+                this.compost.description,
+            );
+            this.$emit('changeTitle',postData);
         }
     }
 }

@@ -10,7 +10,7 @@
     <hr>
     <div v-for="(value, key) in posts" :key="key" >
       //componet
-      <single-post :postData="value" :isActive="1"
+      <single-post :data="value" :isActive="1"
         @changeTitle="onChangeTitle($event)"
        ></single-post>
     </div>
