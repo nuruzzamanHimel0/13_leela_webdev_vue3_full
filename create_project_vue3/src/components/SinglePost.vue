@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="[isActive == 1 ? 'bg-gray': 'bg-white' ]" class="p-2" >
         <h2>Single Post Child Component</h2>
         <ul>
             <div class="title">{{ compost.title }} </div>
@@ -11,10 +11,31 @@
 </template>
 <script>
 export default {
-    props:['data','isActive'],
+    // props:['data','isActive'],
+    //porps validaiton ##############
+    props:{
+        postData:{
+            type:Object,
+            required:false,
+            default: function(){
+                return {
+                        title:'fist title DEFAULT',
+                        description:'this is the DEFAULT first description'
+                    };
+            }
+        },
+        isActive:{
+            type:Number,
+            required:false,
+            default:1,
+            validator: function(value){
+                return [1,0].includes(value)
+            }
+        }
+    },
     data(){
         return {
-           compost: this.data,
+           compost: this.postData,
         }
     },
     methods:{
@@ -24,3 +45,13 @@ export default {
     }
 }
 </script>
+
+<style  scoped>
+
+    .bg-gray{
+        background-color: #ddd;
+    }
+    .bg-white{
+        background-color: #fff;
+    }
+</style>
