@@ -11,6 +11,18 @@
 </template>
 <script>
 export default {
+    //emit validaiton
+    // emits:['changeTitle'],
+    emits:{
+        changeTitle: ( value ) =>{
+            if(value.id && value.title && value.description ){
+                console.log('valide emit');
+                return true;
+            }
+            console.log('invalide emit');
+            return false;
+        },
+    },
     // props:['data','isActive'],
     //porps validaiton ##############
     props:{
@@ -35,12 +47,13 @@ export default {
     },
     data(){
         return {
-           compost: this.postData,
+           compost: {...this.postData},
         }
     },
     methods:{
         changeTitle(){
-            this.compost.title ="Change Post Title"
+            this.compost.title ="Change Post Title from child comp="+this.compost.id;
+            this.$emit('changeTitle',this.compost);
         }
     }
 }
