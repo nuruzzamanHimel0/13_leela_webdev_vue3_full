@@ -1,23 +1,25 @@
 <template>
     <div>
-        <h2>Single Post Component</h2>
+        <h2>Single Post Child Component</h2>
         <ul>
-            <li v-for="(value, key) in post" :key="key" >
-                {{ value.title }}
-            </li>
+            <div class="title">{{ compost.title }} </div>
+            <div >{{ compost.description }} </div>
+            <a href="" @click.prevent="changeTitle()" > Change Title </a>
         </ul>
+        <hr>
     </div>
 </template>
 <script>
 export default {
+    props:['data','isActive'],
     data(){
         return {
-            post: [
-            {
-                title:' single post title',
-                description: 'sisngle post descriptn'
-            }
-            ]
+           compost: this.data,
+        }
+    },
+    methods:{
+        changeTitle(){
+            this.compost.title ="Change Post Title"
         }
     }
 }

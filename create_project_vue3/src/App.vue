@@ -1,13 +1,18 @@
 <template>
   <div>
-    <h1>Post</h1>
+    <h1>Post Main Component</h1>
+    <a href="" @click.prevent="changeParentFirstTitle()" >Change Parent Fist Title</a>
     <ul>
       <li v-for="(value, key) in posts" :key="key" >
         {{ value.title }}
       </li>
     </ul>
     <hr>
-    <single-post></single-post>
+    <div v-for="(value, key) in posts" :key="key" >
+      //componet
+      <single-post :data="value" :isActive="1" ></single-post>
+    </div>
+  
   </div>
 </template>
 
@@ -28,6 +33,11 @@ export default {
           description:'this is the secound description'
         },
       ]
+    }
+  },
+  methods:{
+    changeParentFirstTitle(){
+      this.posts[0].title ="Change Parent Component Fist Title";
     }
   },
   components:{
