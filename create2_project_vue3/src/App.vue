@@ -9,23 +9,68 @@
 
               <SinglePost></SinglePost>
               <hr>
-              <userProfile>
-                  <template  v-slot:header>
-                       <h1  >This is a Header Section</h1>
-                  </template>
+              <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-body">
+                            <userProfile>
+                            <template  #header>
+                                <h1  >This is a Header Section</h1>
+                            </template>
 
-                  <template v-slot:content >
-                    <p>Theis is then content section</p>
-                  </template>
+                            <template v-slot:content >
+                              <p>Theis is then content section</p>
+                            </template>
 
-                  <template v-slot:footer>
-                    <div>
-                      <h4>This is afooter seciton</h4>
+                            <template v-slot:footer>
+                              <div>
+                                <h4>This is afooter seciton</h4>
+                              </div>
+                            </template>
+                          </userProfile>
+                      </div>
                     </div>
-                  </template>
-                   
-             
-              </userProfile>
+                </div>
+
+                 <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-title">
+                        short hand slot
+                      </div>
+                      <div class="card-body">
+                            <userProfile>
+                            <template  #header>
+                                <h1  >This is a Header Section</h1>
+                            </template>
+
+                            <template #content >
+                              <p>Theis is then content section</p>
+                            </template>
+
+                            <template #footer>
+                              <div>
+                                <h4>This is afooter seciton</h4>
+                              </div>
+                            </template>
+                          </userProfile>
+                      </div>
+                    </div>
+                </div>
+                 <div class="col-md-4">
+                    <div class="card">
+                      <div class="card-title">
+                       Default slot
+                      </div>
+                      <div class="card-body">
+                            <userProfile>
+                              <template #content ></template>
+                              <template #footer></template>
+                          </userProfile>
+                      </div>
+                    </div>
+                </div>
+              </div>
+          
           </div>
         </div>
       </div>
