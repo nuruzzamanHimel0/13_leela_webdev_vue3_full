@@ -8,12 +8,12 @@ const routes = [
     name:'Home' 
   },
   { 
-    path: '/', 
+    path: '/Post', 
     component: PostComp,
     name:'Post' 
   },
   { 
-    path: '/', 
+    path: '/CreatePost', 
     component: CreatePostComp,
     name:'CreatePost' 
   },
