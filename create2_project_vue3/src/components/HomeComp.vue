@@ -1,5 +1,5 @@
 <template>
     <div>
-        <p>Home child component</p>
+        <h2>Home Component</h2>
     </div>
 </template>

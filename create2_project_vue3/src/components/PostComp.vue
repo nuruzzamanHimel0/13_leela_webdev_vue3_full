@@ -1,5 +1,5 @@
 <template>
     <div>
-        <p>About child component</p>
+        <h2>Post Component</h2>
     </div>
 </template>
