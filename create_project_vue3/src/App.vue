@@ -14,6 +14,15 @@
             <keep-alive>
               <component :is="activeComponent"></component>
             </keep-alive>
+            <h1>==>Teleport in vuejs 3</h1>
+          
+            <hr>
+              <a href="" class="btn btn-success" @click.prevent="openModal()">Open Modal</a>
+              <my-modal-component
+              :isActiveModal="isActiveModal"
+              @closeModal="isActiveModal = $event"
+              >
+              </my-modal-component>
         </div>
     </div>
    
@@ -30,6 +39,7 @@
   const HomeComponent = defineAsyncComponent(() => import("../src/components/HomeComp.vue"));
   const PostComponent = defineAsyncComponent(() => import("../src/components/PostComponent.vue"));
   const AboutComponent = defineAsyncComponent(() => import("../src/components/AboutComponent.vue"));
+  const MyModalComponent = defineAsyncComponent(() => import("../src/components/MyModalComponent.vue"));
 
   export default {
     data(){
@@ -40,7 +50,8 @@
             'About',
           ],
           isBtnActive:null,
-          isComponent:"Home"
+          isComponent:"Home",
+          isActiveModal:false
       }
     },
     computed:{
@@ -52,12 +63,16 @@
         btnClick(value){
           this.isBtnActive = value;
           this.isComponent = value;
+        },
+        openModal(){
+          this.isActiveModal = true;
         }
     },
     components:{
       HomeComponent,
       PostComponent,
-      AboutComponent
+      AboutComponent,
+      MyModalComponent
     }
     
   }
