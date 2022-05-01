@@ -24,20 +24,35 @@
         </ButtonComponent>
         <hellowWorld></hellowWorld>
 
-        <profile-cart>
-          <template v-slot:header>
-            <h2>This is Header Section</h2>
-          </template>
-       
-          <template v-slot:footer>
-            <h5>This is footer Section</h5>
-          </template>
-          <template v-slot:content>
-            <h4>This is content Section</h4>
-          </template>
-        </profile-cart>
+    
 
       </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+            <profile-cart>
+              <template v-slot:header>
+                <h2>This is Header Section</h2>
+              </template>
+          
+              <template v-slot:footer>
+                <h5>This is footer Section</h5>
+              </template>
+              <template v-slot:content>
+                <h4>This is content Section</h4>
+              </template>
+            </profile-cart>
+         
+      </div>
+      <div class="col-md-4">
+            <profile-cart>
+            
+            </profile-cart>
+         
+      </div>
+
+       
+      
     </div>
   </div>
 </template>
