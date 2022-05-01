@@ -1,81 +1,56 @@
 <template>
   <div class="container">
     <div class="row justify-content-center ">
-      <div class="col-md-6 my-5">
-       
+        <div class="col-md-12">
+            <button v-for="(value, key) in buttonset"
+             :key="key"
+             class="btn"
+             :class="[value == 'Home' ? 'btn-success': '',value == 'Post' ? 'btn-warning': '',value == 'About' ? 'btn-primary': '', isBtnActive == value ? 'btn-danger': '' ]"
+             @click.prevent="btnClick(value)"
+             >
+                {{ value }}
+            </button>
 
-        <ButtonComponent >
-          <template v-slot:data>
-             <i class="fa fa-user-circle" aria-hidden="true" ></i> &nbsp; User Data
-          </template>
-          
-        </ButtonComponent>
-        <ButtonComponent >
-            <template v-slot:user>
-             <i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp; User user
-            </template>
-           
-        </ButtonComponent>
-          <ButtonComponent >
-          <template v-slot:user2>
-            <i class="fa fa-user-circle" aria-hidden="true"></i> &nbsp; User user2
-          </template>
-           
-        </ButtonComponent>
-        <hellowWorld></hellowWorld>
-
-    
-
-      </div>
+            <keep-alive>
+              <component :is="activeComponent"></component>
+            </keep-alive>
+        </div>
     </div>
-    <div class="row">
-      <div class="col-md-4">
-            <profile-cart>
-              <template v-slot:header>
-                <h2>This is Header Section</h2>
-              </template>
-          
-              <template v-slot:footer>
-                <h5>This is footer Section</h5>
-              </template>
-              <template v-slot:content>
-                <h4>This is content Section</h4>
-              </template>
-            </profile-cart>
-         
-      </div>
-      <div class="col-md-4">
-            <profile-cart>
-            
-            </profile-cart>
-         
-      </div>
-
-       
-      
-    </div>
+   
   </div>
 </template>
 
 <script>
-
-import hellowWorld from '../src/components/HelloWorld.vue'
-import ButtonComponent from './components/ButtonComponent.vue'
-import ProfileCart from './components/ProfileCart.vue'
+  import HomeComponent from '../src/components/HomeComp.vue'
+  import PostComponent from '../src/components/PostComponent.vue'
+  import AboutComponent from '../src/components/AboutComponent.vue'
   export default {
     data(){
       return {
-        
+          buttonset: [
+            'Home',
+            'Post',
+            'About',
+          ],
+          isBtnActive:null,
+          isComponent:"Home"
+      }
+    },
+    computed:{
+      activeComponent(){
+        return this.isComponent+"Component"
       }
     },
     methods:{
-      
-
+        btnClick(value){
+          this.isBtnActive = value;
+          this.isComponent = value;
+        }
     },
     components:{
-      hellowWorld,
-      ButtonComponent,
-      ProfileCart
+      HomeComponent,
+      PostComponent,
+      AboutComponent
     }
     
   }
