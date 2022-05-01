@@ -21,9 +21,16 @@
 </template>
 
 <script>
-  import HomeComponent from '../src/components/HomeComp.vue'
-  import PostComponent from '../src/components/PostComponent.vue'
-  import AboutComponent from '../src/components/AboutComponent.vue'
+  // import HomeComponent from '../src/components/HomeComp.vue'
+  // import PostComponent from '../src/components/PostComponent.vue'
+  // import AboutComponent from '../src/components/AboutComponent.vue'
+
+//42. Async Components in Vue js . Assign Name for the chunks using webpackchunkname in Vuejs Vue 3
+  import {  defineAsyncComponent } from "vue";
+  const HomeComponent = defineAsyncComponent(() => import("../src/components/HomeComp.vue"));
+  const PostComponent = defineAsyncComponent(() => import("../src/components/PostComponent.vue"));
+  const AboutComponent = defineAsyncComponent(() => import("../src/components/AboutComponent.vue"));
+
   export default {
     data(){
       return {
