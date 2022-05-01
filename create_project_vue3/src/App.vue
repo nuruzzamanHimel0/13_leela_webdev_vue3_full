@@ -50,9 +50,17 @@
             </profile-cart>
          
       </div>
-
-       
-      
+    </div>
+    <div class="row">
+      <div class="col-md-4 my-3">
+        <h1>=>Scoped Slot</h1>
+        <hr>
+        <hobbies-component>
+          <template v-slot="value" >
+            <h3>{{ value.hobbies }}</h3>
+          </template>
+        </hobbies-component>
+      </div>
     </div>
   </div>
 </template>
@@ -62,6 +70,8 @@
 import hellowWorld from '../src/components/HelloWorld.vue'
 import ButtonComponent from './components/ButtonComponent.vue'
 import ProfileCart from './components/ProfileCart.vue'
+import HobbiesComponent from './components/HobbiesComponent.vue'
+
   export default {
     data(){
       return {
@@ -75,7 +85,8 @@ import ProfileCart from './components/ProfileCart.vue'
     components:{
       hellowWorld,
       ButtonComponent,
-      ProfileCart
+      ProfileCart,
+      HobbiesComponent
     }
     
   }

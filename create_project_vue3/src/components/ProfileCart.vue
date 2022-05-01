@@ -1,6 +1,6 @@
 <template>
     <div class="">
-     
+            <h1>===>Default Sloat and this.$slots</h1>
             <div class="card">
                 <div class="card-body">
                     <div class="header" v-if="$slots.header">
