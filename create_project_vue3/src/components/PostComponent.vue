@@ -17,12 +17,18 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <hr>
+        <user-details-component
+        :allUsers="allUsers"
+        >
+        </user-details-component>
     </div>
 </template>
 
 <script>
 import axios from 'axios'
 import {apiUrl} from '../helpers/urls/apiUrl.js'
+import UserDetailsComponent from './UserDetailsComponent.vue'
 export default {
     activated(){
         console.log('is actiavted');
@@ -34,8 +40,12 @@ export default {
         return {
             name: null,
             email:null,
-            password:null
+            password:null,
+            allUsers:[]
         }
+    },
+     mounted(){
+        this.getAllUsers();
     },
     methods:{
         createUser(){
@@ -54,6 +64,7 @@ export default {
                         this.name = null ;
                         this.email = null;
                         this.password = null;
+                          this.getAllUsers();
                         alert(response.data.message);
                     })
                     .catch( (error)=> {
@@ -64,7 +75,30 @@ export default {
             }
           
             console.log('form submit');
+        },
+        getAllUsers(){
+            axios.get(apiUrl.ALL_USERS_GET)
+            .then( (response) => {
+                // handle success
+                // this.allUsers = response.data.data.data;
+                this.AllUserDetails(response.data.data.data);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .then(function () {
+                // always executed
+            });
+        },
+        AllUserDetails(response){
+            for(let key in response){
+                this.allUsers.push({...response[key],key:key });
+            }
         }
+    },
+    components:{
+        UserDetailsComponent
     }
 }
 </script>
