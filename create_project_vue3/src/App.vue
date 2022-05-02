@@ -50,7 +50,7 @@
             'About',
           ],
           isBtnActive:null,
-          isComponent:"Home",
+          isComponent:"Post",
           isActiveModal:false
       }
     },
