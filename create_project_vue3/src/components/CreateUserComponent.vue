@@ -63,6 +63,7 @@ export default {
                         this.password = null;
                         // this.getAllUsers();
                         alert(response.data.message);
+                        this.$router.push({  name: 'user-details' });
                     })
                     .catch( (error)=> {
                         console.log(error);
