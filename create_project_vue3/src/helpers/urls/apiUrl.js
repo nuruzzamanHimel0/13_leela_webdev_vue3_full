@@ -5,10 +5,12 @@ const ALL_USERS_GET = baseUrl.API_URL+"api/users";
 
 const CREATE_USER_POST_URL = "users";
 const ALL_USERS_GET_URL = "users";
+const SINGLE_USERS_GET_URL = "users/";
 
 export const apiUrl = {
     CREATE_USER_POST,
     ALL_USERS_GET,
     CREATE_USER_POST_URL,
-    ALL_USERS_GET_URL
+    ALL_USERS_GET_URL,
+    SINGLE_USERS_GET_URL
 }

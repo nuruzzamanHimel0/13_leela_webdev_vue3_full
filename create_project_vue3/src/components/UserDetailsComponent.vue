@@ -8,6 +8,7 @@
                 <th scope="col">#</th>
                 <th scope="col">name</th>
                 <th scope="col">email</th>
+                <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -15,7 +16,9 @@
                     <th scope="row">{{key+1}}</th>
                     <td>{{value.name}}</td>
                     <td>{{value.email}}</td>
-               
+                    <td>
+                        <router-link :to="{  name: 'user-single', params: {id: value.id} }" class="btn btn-primary">Single Post</router-link>
+                    </td>
                 </tr>
                
             </tbody>
