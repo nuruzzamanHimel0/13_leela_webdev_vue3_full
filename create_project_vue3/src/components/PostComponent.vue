@@ -19,7 +19,7 @@
         </form>
         <hr>
         <user-details-component
-        :allUsers="allUsers"
+        :allUsers="showAllUsers"
         >
         </user-details-component>
     </div>
@@ -47,24 +47,24 @@ export default {
      mounted(){
         this.getAllUsers();
     },
+    computed:{
+        showAllUsers(){
+            return this.allUsers;
+        }   
+    },
     methods:{
         createUser(){
             if(this.name != null && this.email != null && this.password != null){
-                  axios.post(apiUrl.CREATE_USER_POST, {
+                  axios.post(apiUrl.CREATE_USER_POST_URL, {
                         name: this.name,
                         email: this.email,
                         password: this.password,
-                    },{
-                        headers:{
-                            "Accept" : "application/json",
-                            "Content-Type" : "application/json",
-                        }
                     })
                     .then( (response) =>{
                         this.name = null ;
                         this.email = null;
                         this.password = null;
-                          this.getAllUsers();
+                        this.getAllUsers();
                         alert(response.data.message);
                     })
                     .catch( (error)=> {
@@ -77,7 +77,8 @@ export default {
             console.log('form submit');
         },
         getAllUsers(){
-            axios.get(apiUrl.ALL_USERS_GET)
+            this.allUsers = [];
+            axios.get(apiUrl.ALL_USERS_GET_URL)
             .then( (response) => {
                 // handle success
                 // this.allUsers = response.data.data.data;
@@ -91,10 +92,12 @@ export default {
                 // always executed
             });
         },
-        AllUserDetails(response){
-            for(let key in response){
-                this.allUsers.push({...response[key],key:key });
+        AllUserDetails(data){
+            for(let key in data){
+                this.allUsers.push({...data[key],key:key });
             }
+            console.log(this.allUsers);
+            console.log(data);
         }
     },
     components:{
