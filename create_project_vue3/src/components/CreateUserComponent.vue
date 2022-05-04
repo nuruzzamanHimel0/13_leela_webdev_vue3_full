@@ -18,17 +18,14 @@
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         <hr>
-        <user-details-component
-        :allUsers="showAllUsers"
-        >
-        </user-details-component>
+     
     </div>
 </template>
 
 <script>
 import axios from 'axios'
 import {apiUrl} from '../helpers/urls/apiUrl.js'
-import UserDetailsComponent from './UserDetailsComponent.vue'
+
 export default {
     activated(){
         console.log('is actiavted');
@@ -45,12 +42,12 @@ export default {
         }
     },
      mounted(){
-        this.getAllUsers();
+        // this.getAllUsers();
     },
     computed:{
-        showAllUsers(){
-            return this.allUsers;
-        }   
+        // showAllUsers(){
+        //     return this.allUsers;
+        // }   
     },
     methods:{
         createUser(){
@@ -64,7 +61,7 @@ export default {
                         this.name = null ;
                         this.email = null;
                         this.password = null;
-                        this.getAllUsers();
+                        // this.getAllUsers();
                         alert(response.data.message);
                     })
                     .catch( (error)=> {
@@ -76,32 +73,10 @@ export default {
           
             console.log('form submit');
         },
-        getAllUsers(){
-            this.allUsers = [];
-            axios.get(apiUrl.ALL_USERS_GET_URL)
-            .then( (response) => {
-                // handle success
-                // this.allUsers = response.data.data.data;
-                this.AllUserDetails(response.data.data.data);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
-        },
-        AllUserDetails(data){
-            for(let key in data){
-                this.allUsers.push({...data[key],key:key });
-            }
-            console.log(this.allUsers);
-            console.log(data);
-        }
+       
     },
     components:{
-        UserDetailsComponent
+       
     }
 }
 </script>

@@ -23,19 +23,39 @@
     </div>
 </template>
 <script>
-
+import axios from 'axios'
+import {apiUrl} from '../helpers/urls/apiUrl.js'
 export default {
-    props:['allUsers'],
     data(){
         return {
-           
+            allUsers:[]
         }
     },
     mounted(){
- 
+        this.getAllUsers();
     },
     methods:{
-        
+         getAllUsers(){
+            this.allUsers = [];
+            axios.get(apiUrl.ALL_USERS_GET_URL)
+            .then( (response) => {
+                // handle success
+                // this.allUsers = response.data.data.data;
+                this.AllUserDetails(response.data.data.data);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .then(function () {
+                // always executed
+            });
+        },
+        AllUserDetails(data){
+            for(let key in data){
+                this.allUsers.push({...data[key],key:key });
+            }
+        }
     }
 }
 </script>

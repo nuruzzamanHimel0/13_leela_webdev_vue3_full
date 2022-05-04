@@ -7,6 +7,10 @@ axios.defaults.headers.common['Accept'] = "application/json";
 axios.defaults.headers.common['Content-Type'] = "application/json";
 axios.defaults.headers.common['Himel'] = "My name is himel";
 
+//vue router 4
+import router from '../src/router'
+
 const app = createApp(App);
 
+app.use(router);
 app.mount('#app');
