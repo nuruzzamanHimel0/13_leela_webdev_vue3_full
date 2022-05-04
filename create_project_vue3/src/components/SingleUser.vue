@@ -15,7 +15,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(value, key) in allUsers" :key="key">
-                            <th scope="row">{{key+1}}</th>
+                            <th scope="row">{{value.id}}</th>
                             <td>{{value.name}}</td>
                             <td>{{value.email}}</td>
                             <td>
@@ -28,7 +28,7 @@
             </div>
             <div class="col-md-4">
                 <div v-if="singeUser" class="stickydiv">
-                    <h1>SIngel User</h1>
+                    <h1>SIngel User In Redirect</h1>
                     <p>Id: {{singeUser.id}}</p>
                     <p>name: {{singeUser.name}}</p>
                     <p>eamil: {{singeUser.email}}</p>
