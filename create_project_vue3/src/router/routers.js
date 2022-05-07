@@ -5,6 +5,8 @@ import SingleUser from '../components/SingleUser.vue'
 import NotFound from '../components/NotFoundComponent'
 import SideSingleUser from '../components/partials/sideSingleUser.vue'
 import NoPost from '../components/partials/NoPostComponent.vue'
+import CreateUserFooter from '../components/CreateUserFooter.vue'
+import UserDetailsFooter from '../components/UserDetailsFooter.vue'
 
 const routes = [
     {
@@ -18,12 +20,20 @@ const routes = [
     {
       path: "/create-user",
       name: "create-user",
-      component: CreateUserComponent,
+      // component: CreateUserComponent,
+      components:{
+        default: CreateUserComponent ,
+        footer: CreateUserFooter
+      },
     },
     {
       path: "/user-details",
       name: 'user-details',
-      component: UserDetailsComponent,
+      // component: UserDetailsComponent,
+      components:{
+        default: UserDetailsComponent,
+        footer: UserDetailsFooter
+      },
       children:[
         {
           path:'',

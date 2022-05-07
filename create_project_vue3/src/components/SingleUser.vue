@@ -63,7 +63,9 @@ export default {
          this.ShowsingeUser();
     },
     watch:{
-        id(){
+        id(newValue, oldValue){
+            console.log(oldValue);
+            console.log(newValue);
             this.ShowsingeUser();
         }
     },

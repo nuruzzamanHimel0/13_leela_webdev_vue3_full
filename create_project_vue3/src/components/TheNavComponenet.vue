@@ -12,10 +12,10 @@
                     <router-link :to="{ name: 'Home'}" class="nav-link" >Home </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link :to="{name: 'create-user'}" class="nav-link" href="#">Create Post</router-link>
+                    <router-link :to="{name: 'create-user'}" class="nav-link" href="#">Create User</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link :to="{ name: 'user-details'}" class="nav-link" href="#">Post</router-link>
+                    <router-link :to="{ name: 'user-details'}" class="nav-link" href="#">User Details</router-link>
                 </li>
             </ul>
         </div>
