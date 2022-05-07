@@ -43,11 +43,19 @@ export default {
     },
      mounted(){
         // this.getAllUsers();
+        console.log('Mounted console');
     },
     computed:{
         // showAllUsers(){
         //     return this.allUsers;
         // }   
+    },
+    beforeRouteEnter(){
+        console.log('In component Guard - beforeRotuteEnter');
+    },
+    beforeRouteLeave(){
+         console.log('In component Guard - beforeRouteLeave');
+         this.$router.push({name: "create-user"});
     },
     methods:{
         createUser(){

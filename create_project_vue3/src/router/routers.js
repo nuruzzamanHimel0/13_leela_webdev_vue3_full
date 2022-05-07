@@ -25,6 +25,9 @@ const routes = [
         default: CreateUserComponent ,
         footer: CreateUserFooter
       },
+      beforeEnter: () => {
+        console.log('Per rroute guard');
+      }
     },
     {
       path: "/user-details",

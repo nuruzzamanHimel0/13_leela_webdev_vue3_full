@@ -5,15 +5,25 @@ const router = createRouter({
     routes,
     linkActiveClass:'nav-active'
   });
-  router.beforeEach(async (to, from, next) =>{
-    console.log(to);
-    console.log(from);
-    if(to.path == '/create-user'){
-     
-    }
-    next();
-   
-    //  return false;
-  } );
+  router.beforeEach(()=>{
+    console.log('Global before each route');
+  });
+
+  router.afterEach(()=>{
+    console.log('Global after each route');
+  });
+  // router.beforeEach(async (to, from, next) =>{
+  //   console.log(to);
+  //   console.log(from);
+  //   if(to.path == '/create-user'){
+  //     router.push({
+  //       name : 'side-single-user',
+  //       params: {
+  //         id: 18
+  //       }
+  //     });
+  //   }
+  //   next();
+  // } );
   
 export default router;
