@@ -38,7 +38,8 @@ export default {
             name: null,
             email:null,
             password:null,
-            allUsers:[]
+            allUsers:[],
+            nessage:"This is HI message"
         }
     },
      mounted(){
@@ -50,12 +51,18 @@ export default {
         //     return this.allUsers;
         // }   
     },
-    beforeRouteEnter(){
+    beforeRouteEnter(next){
+        next();
         console.log('In component Guard - beforeRotuteEnter');
     },
+   
+
     beforeRouteLeave(){
          console.log('In component Guard - beforeRouteLeave');
-         this.$router.push({name: "create-user"});
+        //  this.$router.push({name: "create-user"});
+    },
+    beforeRouteUpdate(){
+        console.log('In component Guard - beforeRouteUpdate');
     },
     methods:{
         createUser(){

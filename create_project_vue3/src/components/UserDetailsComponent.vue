@@ -62,6 +62,9 @@ export default {
         )
        
     },
+      beforeRouteUpdate(){
+        console.log('In component Guard - beforeRouteUpdate');
+    },
     methods:{
          getAllUsers(){
             this.allUsers = [];

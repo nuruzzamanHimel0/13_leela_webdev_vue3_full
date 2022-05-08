@@ -27,6 +27,9 @@ export default {
         ),
          this.ShowsingeUser();
     },
+    beforeRouteUpdate(){
+        console.log('In component of singlepost -- beforeRouteUpdate');
+    },
     methods:{
         ShowsingeUser(){
             // console.log(this.$route.params.id);

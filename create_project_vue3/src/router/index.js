@@ -9,7 +9,8 @@ const router = createRouter({
     console.log('Global before each route');
   });
 
-  router.afterEach(()=>{
+  router.afterEach((failure)=>{
+    console.log(failure);
     console.log('Global after each route');
   });
   // router.beforeEach(async (to, from, next) =>{
