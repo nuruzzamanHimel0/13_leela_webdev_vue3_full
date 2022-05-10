@@ -10,7 +10,11 @@ axios.defaults.headers.common['Himel'] = "My name is himel";
 //vue router 4
 import router from '../src/router'
 
+//vuex install
+import store from "./store";
+
 const app = createApp(App);
 
 app.use(router);
+app.use(store);
 app.mount('#app');

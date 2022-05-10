@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>User Create</h1>
+        <h1>User Create <i>Counter: {{ $store.state.count }} </i> </h1>
         <form @submit.prevent="createUser()">
         <div class="form-group">
             <label for="userName">User Name</label>

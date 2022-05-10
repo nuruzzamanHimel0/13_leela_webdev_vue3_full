@@ -1,6 +1,7 @@
 <template>
     <div>
         Home Component here
+        <h2>counter: {{ $store.state.count }} </h2>
 
         <button class="btn btn-success" @click.prevent="goToPost()">Go to post</button>
     </div>
