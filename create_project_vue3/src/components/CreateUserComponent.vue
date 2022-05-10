@@ -51,9 +51,10 @@ export default {
         //     return this.allUsers;
         // }   
     },
-    beforeRouteEnter(next){
-        next();
+    beforeRouteEnter(){
+        
         console.log('In component Guard - beforeRotuteEnter');
+       
     },
    
 
